@@ -69,6 +69,6 @@ if __name__ == '__main__':
     try:
         days_requested = sys.argv[1]
         results = asyncio.run(main(days_requested))
-        print(json.dumps(results, indent=4, ensure_ascii=False))  # Use ensure_ascii=False for proper output
+        print(json.dumps(results, indent=4, ensure_ascii=False))
     except (IndexError, ValueError):
         print("Usage: python main.py <number_of_days>")
