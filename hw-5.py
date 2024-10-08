@@ -35,12 +35,9 @@ async def fetch_rates(days):
         print(f"Fetching rates for: {shift}")
 
         response = await request(f'https://api.privatbank.ua/p24api/exchange_rates?date={shift}')
-
-
         if response is None:
             print(f"No response received for {shift}. Skipping...")
             continue
-
 
         if 'exchangeRate' in response:
             exchange_rates = {shift: {}}
@@ -56,6 +53,7 @@ async def fetch_rates(days):
 
     return rates
 
+
 async def main(days):
     if int(days) > 10:
         print("Error: You can only retrieve data for a maximum of 10 days.")
@@ -63,6 +61,7 @@ async def main(days):
 
     rates = await fetch_rates(days)
     return rates
+
 
 if __name__ == '__main__':
     if platform.system() == 'Windows':
